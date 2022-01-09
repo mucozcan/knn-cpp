@@ -4,6 +4,7 @@
 
 #include "Dataset.h"
 #include "Visualizer.h"
+#include "KNN.h"
 
 bool argParser(int argc, char **argv, int& K, int& iter, std::string& filename){
   if (argc < 4) {
@@ -54,5 +55,8 @@ int main(int argc, char **argv) {
 
   dataset.initializeTestData(-5.0, 5.0, 10);
   dataset.printTestData();
+
+  KNN knn(3, dataset);
+  knn.run();
   return 0;
 }

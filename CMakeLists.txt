@@ -7,7 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 project(knn_classification)
 
 set(CMAKE_BINARY_DIR "${PROJECT_SOURCE_DIR}/bin")
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 # add_subdirectory(matplotplusplus)
 file(GLOB_RECURSE SRC_FILES src/*.cpp)
 add_executable(main ${SRC_FILES})

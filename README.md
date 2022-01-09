@@ -1,4 +1,9 @@
 ## KMeans++ Clustering
+### TODO
+* edit .gitignore
+* visualize data
+* clear comments
+* convert dtype from double to int depending on visual results
 
 ### Installation
 #### Prerequisites
