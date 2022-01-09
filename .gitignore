@@ -1,0 +1,4 @@
+bin/*
+build/*
+.ccls
+.ccls-cache
