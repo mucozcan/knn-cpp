@@ -1,26 +1,12 @@
+#include "Dataset.h"
+#include "Point.h"
+#include <ctime>
 #include <iostream>
 #include <string>
 
-#include "Dataset.h"
-#include "Point.h"
-
 int Dataset::dataIndex = 0;
-/*  */
-/* Dataset::Dataset(int const pointCount, double const lowerBound, */
-/*                  double const upperBound, int const classCount, */
-/*                  int const dataPerClass, bool isTrain) */
-/*     : pointCount(sampleCount), lowerBound(lowerBound),
- * upperBound(upperBound), */
-/*       classCount(classCount), dataPerClass(dataPerClass), isTrain(isTrain){
- */
-/*          */
-/*         if(isTrain){ */
-/*           initializeTrainData(lowerBound, upperBound, classCount,
- * dataPerClass); */
-/*         } */
-/*         else initializeTestData(pointCount, lowerBound, upperBound); */
-/*       } */
-Dataset::Dataset(){};
+
+Dataset::Dataset() {}
 Dataset::~Dataset() {}
 
 std::vector<Point> Dataset::getTrainData() const { return trainData; }
@@ -51,6 +37,7 @@ void Dataset::initializeTestData(double lowerBound, double upperBound,
 }
 
 double Dataset::random(double const lowerBound, double const upperBound) {
+
   double f = (double)rand() / RAND_MAX;
 
   return lowerBound + f * (upperBound - lowerBound);

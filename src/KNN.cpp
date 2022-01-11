@@ -1,8 +1,14 @@
 #include <algorithm>
 #include <iostream>
 #include <math.h>
+#include <numeric>
 
 #include "KNN.h"
+
+double eucledianDistance(Point p1, Point p2) {
+  return sqrt(pow((p1.getX() - p2.getX()), 2) +
+              pow((p1.getY() - p2.getY()), 2));
+}
 
 KNN::KNN(int const K, Dataset const &dataset) : K(K), dataset(dataset) {
 
@@ -14,50 +20,33 @@ KNN::~KNN() {}
 
 void KNN::run() {
 
-  double dist;
   std::map<int, int>::iterator result;
-
+  int classId;
   for (std::vector<Point>::iterator testIt = testData.begin();
        testIt != testData.end(); testIt++) {
-    neighbors.clear();
     nearestNeighbors.clear();
 
+    std::sort(trainData.begin(), trainData.end(),
+              [testIt](const Point &pLeft, const Point &pRight) {
+                return eucledianDistance(*testIt, pLeft) <
+                       eucledianDistance(*testIt, pRight);
+              });
+
     for (std::vector<Point>::iterator trainIt = trainData.begin();
-         trainIt != trainData.end(); trainIt++) {
-
-      dist = eucledianDistance(*testIt, *trainIt);
-
-      neighbors.insert({dist, trainIt->getClassId()});
-    }
-
-    /* std::copy_n(neighbors.begin(), K, std::inserter(nearestNeighbors,
-     * nearestNeighbors.end())); */
-
-    //find nearest neighbors and select most frequent class
-    Neighbors::iterator nearIt = neighbors.begin();
-    for (int i = 0; i < K; i++) {
-
-      ++nearestNeighbors[nearIt->second];
-
-      nearIt++;
-      if (nearIt == neighbors.end())
-        break;
-    }
+         trainIt != trainData.begin() + K; trainIt++)
+      nearestNeighbors[trainIt->getClassId()]++;
 
     result = std::max_element(nearestNeighbors.begin(), nearestNeighbors.end());
     testIt->setClassId(result->first);
   }
+
   printResults();
 }
 
-double KNN::eucledianDistance(Point p1, Point p2) {
-  return sqrt(pow((p1.getX() - p2.getX()), 2) +
-              pow((p1.getY() - p2.getY()), 2));
-}
-
-void KNN::printResults(){
-    std::cout << "Inference Results:" <<std::endl;
-    for(std::vector<Point>::iterator testIt = testData.begin(); testIt != testData.end(); testIt++){
-      std::cout << *testIt <<std::endl;
-    }
+void KNN::printResults() {
+  std::cout << "Inference Results:" << std::endl;
+  for (std::vector<Point>::iterator testIt = testData.begin();
+       testIt != testData.end(); testIt++) {
+    std::cout << *testIt << std::endl;
+  }
 }

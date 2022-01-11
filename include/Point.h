@@ -11,8 +11,7 @@ class Point {
 
 
 public:
-  Point(const int, const double, const double, int classId = -1);
-  /* Point(const int, const double, const double); */
+  Point( int, double, double, int classId = -1);
   ~Point();
 
   int getClassId() const;
@@ -23,10 +22,11 @@ public:
   void setClassId(int);
 
 private:
-  int const index;
-  int classId; // -1 classId means it is a test data.
-  double const x;
-  double const y;
+  // can't declare data members as 'const' since it causes error in std::sort(in KNN.cpp)
+  int index;
+  int classId; // -1 classId indicates that it is a test data.
+  double x;
+  double y;
 };
 
 #endif

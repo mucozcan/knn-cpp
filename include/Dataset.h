@@ -8,10 +8,7 @@
 class Dataset {
 public:
   Dataset();
-  /* Dataset(int const, double const, double const, int const, int const, bool);
-   */
   ~Dataset();
-  // TODO outstream operator <<
 
   void initializeTrainData(double, double, int, int);
   void initializeTestData(double, double, int);
@@ -22,16 +19,11 @@ public:
   std::vector<Point> getTestData() const;
 
 private:
-  static int dataIndex; // holds the current index TODO might be unnecessary
+  static int dataIndex; 
 
   double random(double const, double const);
 
-  /* bool isTrain; */
-  /* int const sampleCount; */
-  /* double const lowerBound; */
-  /* double const upperBound; */
-  /* int const classCount; */
-  /* int const dataPerClass; */
+
 
   std::vector<Point> trainData;
   std::vector<Point> testData;
