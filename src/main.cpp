@@ -11,7 +11,7 @@ int main(int argc, char **argv) {
 
 
   Dataset dataset;
-  dataset.initializeTrainData(-5.0, 5.0, 3, 10);
+  dataset.initializeTrainData(-5.0, 5.0, 3, 15);
   dataset.printTrainData();
 
   dataset.initializeTestData(-5.0, 5.0, 10);
@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
 
   std::vector<Point> trainData = knn.getTrainData();
   std::vector<Point> testData = knn.getTestData();
-  Visualizer vis(trainData, testData);
+  Visualizer vis(trainData, testData); // small dots are test data.
 
   vis.plot(true, "../results/classification.png");
   return 0;

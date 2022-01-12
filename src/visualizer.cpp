@@ -31,7 +31,7 @@ void Visualizer::initialize(std::vector<Point> &trainData,
 
   sizes.resize(classes.size());
   std::fill(sizes.begin(), sizes.end(), 12);
-  std::fill(sizes.begin(), sizes.end() - testData.size() - 1, 20);
+  std::fill(sizes.begin(), sizes.end() - testData.size(), 20);
 }
 void Visualizer::plot(bool save, std::string filename) {
   auto l = matplot::scatter(feat1, feat2, sizes, classes);
