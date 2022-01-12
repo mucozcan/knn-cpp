@@ -14,25 +14,25 @@ std::vector<Point> Dataset::getTestData() const { return testData; }
 
 void Dataset::initializeTrainData(double lowerBound, double upperBound,
                                   int classCount, int dataPerClass) {
-  double x, y;
+  double f1, f2;
 
   for (int i = 0; i < classCount; i++) {
     for (int j = 0; j < dataPerClass; j++, dataIndex++) {
 
-      x = random(lowerBound, upperBound);
-      y = random(lowerBound, upperBound);
-      trainData.push_back(Point(dataIndex, x, y, i));
+      f1 = random(lowerBound, upperBound);
+      f2 = random(lowerBound, upperBound);
+      trainData.push_back(Point(dataIndex, f1, f2, i));
     }
   }
 }
 
 void Dataset::initializeTestData(double lowerBound, double upperBound,
                                  int pointCount) {
-  double x, y;
+  double f1, f2;
   for (int i = 0; i < pointCount; i++, dataIndex++) {
-    x = random(lowerBound, upperBound);
-    y = random(lowerBound, upperBound);
-    testData.push_back(Point(dataIndex, x, y));
+    f1 = random(lowerBound, upperBound);
+    f2 = random(lowerBound, upperBound);
+    testData.push_back(Point(dataIndex, f1, f2));
   }
 }
 

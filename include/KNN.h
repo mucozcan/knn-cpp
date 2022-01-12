@@ -17,6 +17,8 @@ public:
 
   void run();
   void printResults();
+  std::vector<Point> getTestData() const;
+  std::vector<Point> getTrainData() const;
 
 private:
 

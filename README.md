@@ -1,11 +1,5 @@
-## KMeans++ Clustering
-### TODO
-* edit .gitignore
-* visualize data
-* clear comments
-* convert dtype from double to int depending on visual results
-
-### Installation
+## KNN Classification C++
+## Installation
 #### Prerequisites
 * Ubuntu 20.04
 * g++ 9.3.0
@@ -35,6 +29,6 @@ make
 ```
 cd ..
 cd bin
-./main 2 3 ../data/20.txt
+./main.out
 ```
 # knn-cpp
