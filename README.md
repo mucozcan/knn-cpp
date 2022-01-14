@@ -1,6 +1,6 @@
 ## KNN Classification C++
 
-This a C++ implementation of KNN algorithm. It generates samples with two features(f1, f2) based on given boundaries and quantity.
+This a C++ implementation of KNN algorithm. It generates samples with two random features(f1, f2) based on given boundaries and quantity.
 
 
 ![Result](results/classification.png)\
