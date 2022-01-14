@@ -3,8 +3,8 @@
 This a C++ implementation of KNN algorithm. It generates samples with two features(f1, f2) based on given boundaries and quantity.
 
 
-![Result](results/classification.png)
-
+![Result](results/classification.png)\
+Smaller figures are test samples.
 
 ## Installation
 #### Tested on
