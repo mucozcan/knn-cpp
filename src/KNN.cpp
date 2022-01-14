@@ -29,14 +29,20 @@ void KNN::run() {
        testIt != testData.end(); testIt++) {
     nearestNeighbors.clear();
 
+
+    //sort train set, based on eucledianDistance between test sample
     std::sort(trainData.begin(), trainData.end(),
               [testIt](const Point &pLeft, const Point &pRight) {
                 return eucledianDistance(*testIt, pLeft) <
                        eucledianDistance(*testIt, pRight);
               });
+
+    //get class id's of K nearest neighbors
     for (std::vector<Point>::iterator trainIt = trainData.begin();
          trainIt != trainData.begin() + K; trainIt++)
       nearestNeighbors[trainIt->getClassId()]++;
+
+    //Find the most occuring class id
     result = std::max_element(
         nearestNeighbors.begin(), nearestNeighbors.end(),
         [](const std::pair<int, int> &p1, const std::pair<int, int> &p2) {

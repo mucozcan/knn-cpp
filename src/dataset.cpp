@@ -1,8 +1,9 @@
-#include "Dataset.h"
-#include "Point.h"
 #include <ctime>
 #include <iostream>
 #include <string>
+
+#include "Dataset.h"
+#include "Point.h"
 
 int Dataset::dataIndex = 0;
 
